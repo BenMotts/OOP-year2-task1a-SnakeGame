@@ -4,19 +4,16 @@ Hole::Hole()
 {
 }
 
-Hole::Hole(int x, int y)
+Hole::Hole(int x, int y) : symbol(HOLE), x(x), y(y)
 {
-	symbol = HOLE;
-	this->x = x;
-	this->y = y;
 }
 
-int Hole::get_x()
+int Hole::get_x() const
 {
 	return x;
 }
 
-int Hole::get_y()
+int Hole::get_y() const
 {
 	return y;
 }
@@ -26,7 +23,7 @@ char Hole::get_symbol() const
 	return symbol;
 }
 
-bool Hole::is_at_position(int x, int y)
+bool Hole::is_at_position(const int& x, const int& y) const
 {
 	return this->x == x && this->y == y;
 }
@@ -38,15 +35,8 @@ Underground::Underground() : holes(MAXHOLES)
 {
 }
 
-Hole Underground::get_hole_no(int no) const
-{
-	// pre-condition: valid hole number
-	assert(is_valid_hole_number(no));
 
-	return holes.at(no);
-}
-
-void Underground::set_hole_no_at_position(int no, int x, int y)
+void Underground::set_hole_no_at_position(const int& no, int x, int y)
 {
 	// pre-condition: valid hole number
 	assert(is_valid_hole_number(no));
@@ -61,7 +51,40 @@ void Underground::set_hole_no_at_position(int no, int x, int y)
 	}
 }
 
-bool Underground::is_valid_hole_number(int no) const
+bool Underground::is_valid_hole_number(const int& no) const
 {
 	return no >= 0 && no < (int)holes.size();
 }
+
+bool Underground::is_hole_at_position(const int& no, const int& x, const int& y) const {
+	// pre-condition: valid hole number
+	assert(is_valid_hole_number(no));
+
+	return holes.at(no).is_at_position(x, y);
+}
+
+int Underground::get_hole_count() const {
+	return holes.size();
+}
+
+char Underground::get_hole_symbol(const int& no) const {
+	// pre-condition: valid hole number
+	assert(is_valid_hole_number(no));
+
+	return holes.at(no).get_symbol();
+}
+
+int Underground::get_hole_x_at_position(const int& no) const {
+	// pre-condition: valid hole number
+	assert(is_valid_hole_number(no));
+
+	return holes.at(no).get_x();
+}
+
+int Underground::get_hole_y_at_position(const int& no) const {
+	// pre-condition: valid hole number
+	assert(is_valid_hole_number(no));
+
+	return holes.at(no).get_y();
+}
+

@@ -6,14 +6,14 @@
 
 using namespace std;
 
-class RandomNumberGenerator
+static class RandomNumberGenerator
 {
 	public:
 		// constructors
 		RandomNumberGenerator();
 
 		// accessors
-		int get_random_value(int) const;
+		int get_random_value(const int&) const;
 
 	private:
 		// supporting functions

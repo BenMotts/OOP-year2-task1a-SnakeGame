@@ -8,14 +8,13 @@ void Game::set_up()
    underground.set_hole_no_at_position(2, 7, 15);
 
    // mouse state already set up in its contructor
-   Snake s1;
-   Snake s2(s1);
+
    // set up snake
    snake.position_at_random();
    snake.spot_mouse(&mouse);
 }
 
-void Game::process_input(int key)
+void Game::process_input(const int& key)
 {
    mouse.scamper(key);
    snake.chase_mouse();
@@ -37,9 +36,9 @@ vector<vector<char>> Game::prepare_grid()
       for (int col = 1; col <= SIZE; ++col)
       {
          // is the snake at this position?
-         if (row == snake.y && col == snake.x)
+         if (row == snake.get_y() && col == snake.get_x())
          {
-            line.push_back(snake.symbol);
+            line.push_back(snake.get_symbol());
          }
          // is the mouse at this position?
          else if (row == mouse.get_y() && col == mouse.get_x())
@@ -53,7 +52,7 @@ vector<vector<char>> Game::prepare_grid()
 
             if (hole_no != -1)
             {
-               line.push_back(underground.get_hole_no(hole_no).get_symbol());
+               line.push_back(underground.get_hole_symbol(hole_no));
             }
             else
             {
@@ -70,11 +69,11 @@ vector<vector<char>> Game::prepare_grid()
    return grid;
 }
 
-int Game::find_hole_number_at_position(int x, int y)
+int Game::find_hole_number_at_position(const int& x, const int& y)
 {
-   for (size_t h_no = 0; h_no < underground.holes.size(); ++h_no)
+   for (size_t h_no = 0; h_no < underground.get_hole_count(); ++h_no)
    {
-      if (underground.get_hole_no(h_no).is_at_position(x, y))
+      if (underground.is_hole_at_position(h_no, x, y))
       {
          return h_no;
       }
