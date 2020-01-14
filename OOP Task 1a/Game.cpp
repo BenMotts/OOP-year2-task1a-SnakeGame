@@ -104,6 +104,7 @@ void Game::apply_rules()
    if (snake.has_caught_mouse())
    {
       mouse.die();
+	  player1.update_score(-1);
    }
    else
 	  
@@ -113,6 +114,7 @@ void Game::apply_rules()
 		   if (mouse.has_reached_a_hole(underground))
 		   {
 			   mouse.escape_into_hole();
+			   player1.update_score(1);
 		   }
 	   }
 	  if (nut.has_been_collected() == true)
@@ -134,3 +136,9 @@ string Game::get_end_reason()
 
    return "The snake ate you!";
 }
+
+Player Game::returnPlayer()
+{
+	return player1;
+}
+
