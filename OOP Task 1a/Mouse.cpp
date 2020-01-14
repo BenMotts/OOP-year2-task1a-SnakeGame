@@ -37,6 +37,7 @@ bool Mouse::has_escaped() const
 
 bool Mouse::has_reached_a_hole(Underground ug)
 {
+	
 	for (int h_no = 0; h_no < (int)ug.get_hole_count(); ++h_no)
 		if (is_at_position(ug.get_hole_x_at_position(h_no), ug.get_hole_y_at_position(h_no)))
 			return true;

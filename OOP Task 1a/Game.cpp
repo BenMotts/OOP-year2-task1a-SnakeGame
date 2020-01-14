@@ -1,5 +1,7 @@
 #include "Game.h"
 
+
+
 void Game::set_up()
 {
    // set up the holes
@@ -12,6 +14,7 @@ void Game::set_up()
    // set up snake
    snake.position_at_random();
    snake.spot_mouse(&mouse);
+   nut.spot_mouse(&mouse);
 }
 
 void Game::process_input(const int& key)
@@ -39,6 +42,12 @@ vector<vector<char>> Game::prepare_grid()
          if (row == snake.get_y() && col == snake.get_x())
          {
             line.push_back(snake.get_symbol());
+			if (snake.returnCounter() > 0)
+			{
+				line.push_back(snake.bigSnakeBody.at(0).bodyPart1);
+				line.push_back(snake.bigSnakeBody.at(0).bodyPart2);
+				line.push_back(snake.bigSnakeBody.at(0).bodyPart3);
+			}
          }
          // is the mouse at this position?
          else if (row == mouse.get_y() && col == mouse.get_x())
@@ -60,6 +69,14 @@ vector<vector<char>> Game::prepare_grid()
                line.push_back(FREECELL);
             }
          }
+
+		 if (row == 10)
+		 {
+			 if (col == 5)
+			 {
+				 line.push_back(nut.get_symbol());
+			 }
+		 }
       }
 
       // now that the row is full, add it to the 2D grid
@@ -89,11 +106,19 @@ void Game::apply_rules()
       mouse.die();
    }
    else
+	  
    {
-      if (mouse.has_reached_a_hole(underground))
-      {
-         mouse.escape_into_hole();
-      }
+	   if (nut.has_been_collected() == true)
+	   {
+		   if (mouse.has_reached_a_hole(underground))
+		   {
+			   mouse.escape_into_hole();
+		   }
+	   }
+	  if (nut.has_been_collected() == true)
+		  nut.disappear();
+
+	  
    }
 }
 

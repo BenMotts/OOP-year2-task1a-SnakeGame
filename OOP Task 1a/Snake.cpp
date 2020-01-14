@@ -6,6 +6,18 @@
 Snake::Snake() : symbol(SNAKEHEAD), p_mouse(nullptr)
 {
 	position_at_random();
+	counter = 0;
+	snakeBodyParts body;
+	body.bodyPart1 = SNAKEBODY;
+	body.bodyPart2 = SNAKEBODY;
+	body.bodyPart3 = SNAKEBODY;
+	body.bodyPart1X = 0;
+	body.bodyPart1Y = 0;
+	body.bodyPart2X = 0;
+	body.bodyPart2Y = 0;
+	body.bodyPart3X = 0;
+	body.bodyPart3Y = 0;
+	bigSnakeBody.push_back(body);
 }
 
 Snake::~Snake()
@@ -64,15 +76,17 @@ void Snake::set_direction(int& dx, int& dy)
 
 void Snake::update_position(const int& dx, const int& dy)
 {
+	counter++;
 	x += dx;
 	y += dy;
+	move_tail(dx,dy);
 }
 
 void Snake::position_at_random()
 {
 	// WARNING: this may place on top of other things
 
-	x = rng.get_random_value(SIZE);
+    x =  rng.get_random_value(SIZE);
 	y = rng.get_random_value(SIZE);
 }
 
@@ -86,5 +100,21 @@ int Snake::get_x() const {
 
 int Snake::get_y() const {
 	return y;
+}
+void Snake::move_tail(const int& dx, const int& dy)
+{
+	bigSnakeBody.at(0).bodyPart1X = dx;
+	bigSnakeBody.at(0).bodyPart1Y = dy;
+	bigSnakeBody.at(0).bodyPart2X = dx;
+	bigSnakeBody.at(0).bodyPart2Y = dy;
+	bigSnakeBody.at(0).bodyPart3X = dx;
+	bigSnakeBody.at(0).bodyPart3Y = dy;
+
+}
+
+
+int Snake::returnCounter()
+{
+	return counter;
 }
 
