@@ -2,6 +2,7 @@
 
 
 
+
 void Game::set_up()
 {
    // set up the holes
@@ -141,4 +142,5 @@ Player Game::returnPlayer()
 {
 	return player1;
 }
+
 
