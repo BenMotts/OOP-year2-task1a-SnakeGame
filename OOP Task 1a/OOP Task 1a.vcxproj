@@ -126,14 +126,20 @@
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="Nut.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="RandomNumberGenerator.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="Underground.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Nut.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="RandomNumberGenerator.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="Snake.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Underground.cpp" />

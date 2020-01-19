@@ -1,7 +1,8 @@
 #pragma once
 
-#include "constants.h"
+#include "Constants.h"
 #include "Underground.h"
+
 
 class Mouse
 {
@@ -18,10 +19,13 @@ class Mouse
 		bool has_escaped() const;
 		bool has_reached_a_hole(Underground ug);
 
+
 		// mutators
 		void die();
 		void escape_into_hole();
 		void scamper(const int& key);
+		void respawn_mouse();
+
 
 	private:
 		// data members
@@ -33,6 +37,7 @@ class Mouse
 		char symbol;
 
 		// supporting functions 
-		void position_in_middle_of_grid();
+
 		void update_position(const int& dx, const int& dy);
+		void position_in_middle_of_grid();
 };

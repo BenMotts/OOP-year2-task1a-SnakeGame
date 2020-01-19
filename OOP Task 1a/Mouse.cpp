@@ -37,6 +37,7 @@ bool Mouse::has_escaped() const
 
 bool Mouse::has_reached_a_hole(Underground ug)
 {
+	
 	for (int h_no = 0; h_no < (int)ug.get_hole_count(); ++h_no)
 		if (is_at_position(ug.get_hole_x_at_position(h_no), ug.get_hole_y_at_position(h_no)))
 			return true;
@@ -86,6 +87,7 @@ void Mouse::scamper(const int& key)
 	}
 }
 
+
 void Mouse::update_position(const int& dx, const int& dy)
 {
 	x += dx;
@@ -96,4 +98,13 @@ void Mouse::position_in_middle_of_grid()
 {
 	x = SIZE / 2;
 	y = SIZE / 2;
+}
+void Mouse::respawn_mouse()
+{
+	x = 0;
+	y = 0;
+	position_in_middle_of_grid();
+	symbol = MOUSE;
+	alive = true;
+	escaped = false;
 }
