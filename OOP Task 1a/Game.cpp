@@ -138,9 +138,18 @@ string Game::get_end_reason()
    return "The snake ate you!";
 }
 
-Player Game::returnPlayer()
+
+void Game::restart_game()
 {
-	return player1;
+	
+	mouse.respawn_mouse();
+	nut.respawn_nut();
+	snake.update_counter(0);
+}
+
+Player * Game::getPlayerPtr()
+{
+	return &player1;
 }
 
 

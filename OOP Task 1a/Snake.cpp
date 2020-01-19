@@ -118,3 +118,8 @@ int Snake::returnCounter()
 	return counter;
 }
 
+void Snake::update_counter(int counter)
+{
+	this->counter = counter;
+}
+

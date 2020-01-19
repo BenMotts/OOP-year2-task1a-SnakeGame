@@ -39,3 +39,10 @@ void Nut::disappear()
 {
 	symbol = FREECELL;
 }
+void Nut::respawn_nut()
+{
+	symbol = NUT;
+	collected = false;
+}
+
+

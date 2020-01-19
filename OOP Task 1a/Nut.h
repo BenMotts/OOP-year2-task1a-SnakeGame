@@ -15,6 +15,7 @@ class Nut {
 		 bool has_been_collected();
 		 bool is_at_position(const int& x, const int& y);
 		 void disappear();
+		 void respawn_nut();
 
 		 
 

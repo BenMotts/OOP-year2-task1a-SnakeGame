@@ -33,6 +33,7 @@ public:
 	int get_y() const;
 	void move_tail(const int& dx, const int& dy);
 	int returnCounter();
+	void update_counter(int counter);
 
 
 private:

@@ -87,6 +87,7 @@ void Mouse::scamper(const int& key)
 	}
 }
 
+
 void Mouse::update_position(const int& dx, const int& dy)
 {
 	x += dx;
@@ -97,4 +98,13 @@ void Mouse::position_in_middle_of_grid()
 {
 	x = SIZE / 2;
 	y = SIZE / 2;
+}
+void Mouse::respawn_mouse()
+{
+	x = 0;
+	y = 0;
+	position_in_middle_of_grid();
+	symbol = MOUSE;
+	alive = true;
+	escaped = false;
 }

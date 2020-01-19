@@ -13,13 +13,13 @@ int main()
 
 	Game game;
 	string playerName;
-	Player player1 = game.returnPlayer();
-
+	Player* player1 = game.getPlayerPtr();
+	char input = ' ';
 
 
 	cout << "Enter your name" << endl;
 	cin >> playerName;
-	player1.update_name(playerName);
+	player1->update_name(playerName);
 	game.set_up();
 
 		while (!WindowShouldClose())
@@ -27,30 +27,31 @@ int main()
 			BeginDrawing();
 			ClearBackground(DARKGRAY);
 
-
-			if (player1.get_name() != "")
+			if (player1->get_name() != "")
 			{
 				DrawText("Player Name: ", 600, 80, 20, RED);
-				DrawText(player1.get_name().c_str(), 750, 80, 20, RED);
-				DrawText("Player Score: ", 600, 120, 20, RED);
-				if (game.is_running())
+				DrawText(player1->get_name().c_str(), 750, 80, 20, RED);
+				
+				if(game.is_running())
 				{
-					string score = to_string(player1.get_score());
+					string score = to_string(player1->get_score());
 					if (IsKeyPressed(KEY_RIGHT))  game.process_input(KEY_RIGHT);
 					if (IsKeyPressed(KEY_LEFT))   game.process_input(KEY_LEFT);
 					if (IsKeyPressed(KEY_UP))     game.process_input(KEY_UP);
 					if (IsKeyPressed(KEY_DOWN))   game.process_input(KEY_DOWN);
-					DrawText(score.c_str(), 750, 120, 20, RED);
-
 				}
 				else
 				{
-					string score = to_string(player1.get_score());
-					DrawText(game.get_end_reason().c_str(), 610, 10, 20, LIGHTGRAY);
-					DrawText(score.c_str(), 750, 120, 20, RED);
-					DrawText("To continue, press 'R'", 610, 400, 20, LIGHTGRAY);
-
+					cout << "Please press R to restart game"<<endl;
+					cin >> input;
+					if ((input == 'r') || ((input == 'R')))
+					{
+						game.set_up();
+						game.restart_game();
+					}
+					
 				}
+
 
 				const int cellSize = (int)((float)GetScreenHeight() / (float)(SIZE));
 
@@ -80,19 +81,19 @@ int main()
 				}
 
 
+			
 			}
+			string score = to_string(player1->get_score());
+			DrawText("Player Score: ", 650, 350, 20, WHITE);
+			DrawText(score.c_str(), 820, 350, 20, WHITE);
 			EndDrawing();
+
 		}
-		
+
+
 	CloseWindow();
+
 	return 0;
 }
 
-bool continueGame1(char keyPressed)
-{
-	if (keyPressed == 'r')
-		return true;
-	else
-		return false;
 
-}
