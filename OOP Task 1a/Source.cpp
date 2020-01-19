@@ -31,6 +31,7 @@ int main()
 			{
 				DrawText("Player Name: ", 600, 80, 20, RED);
 				DrawText(player1->get_name().c_str(), 750, 80, 20, RED);
+				DrawText("Press ESC to quit or R to restart game", 600, 235, 15, LIGHTGRAY);
 				
 				if(game.is_running())
 				{
