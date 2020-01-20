@@ -19,9 +19,6 @@ public:
 
 private:
 
-	char symbol = FixedItem::symbol;
-	int x = FixedItem::x;
-	int y= FixedItem::y;
 };
 
 class Underground

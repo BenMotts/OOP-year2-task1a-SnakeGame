@@ -1,8 +1,7 @@
 #include "FixedGridItem.h"
 
-FixedItem::FixedItem() : x(0), y(0)
+FixedItem::FixedItem()
 {
-
 }
 
 
@@ -25,7 +24,7 @@ int FixedItem::get_y()const
 	return y;
 }
 
-bool FixedItem::is_at_position(const int & x, const int &) const
+bool FixedItem::is_at_position(const int& x, const int& y)const 
 {
 	return (this->x == x) && (this->y == y);
 }

@@ -4,10 +4,12 @@
 
 Hole::Hole()
 {
+
 }
 
-Hole::Hole(int x, int y) : symbol(HOLE), x(x), y(y)
+Hole::Hole(int x, int y) : FixedItem(x, y)
 {
+	symbol = HOLE; 
 }
 
 // number of holes in underground
