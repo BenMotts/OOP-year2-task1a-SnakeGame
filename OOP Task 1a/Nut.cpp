@@ -43,6 +43,7 @@ void Nut::respawn_nut()
 	symbol = NUT;
  	x = rng.get_random_value(SIZE);
 	y = rng.get_random_value(SIZE);
+	
 	collected = false;
 }
 
