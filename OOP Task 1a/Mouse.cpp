@@ -1,29 +1,14 @@
 #include "Mouse.h"
 
-Mouse::Mouse() : symbol(MOUSE), x(0), y(0), alive(true), escaped(false), mouse_dx(0), mouse_dy(0)
+Mouse::Mouse() : alive(true), escaped(false), mouse_dx(0), mouse_dy(0)
 {
+	symbol = MOUSE;
+	x = 0; 
+	y = 0;
 	initialise_position();
 }
 
-int Mouse::get_x() const
-{
-	return x;
-}
 
-int Mouse::get_y() const
-{
-	return y;
-}
-
-char Mouse::get_symbol() const
-{
-	return symbol;
-}
-
-bool Mouse::is_at_position(const int& x, const int& y)
-{
-	return this->x == x && this->y == y;
-}
 
 bool Mouse::is_alive() const
 {

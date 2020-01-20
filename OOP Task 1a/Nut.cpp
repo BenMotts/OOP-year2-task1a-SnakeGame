@@ -12,14 +12,7 @@ void Nut::spot_mouse(Mouse* p_mouse)
 
 	this->pointer_mouse = p_mouse;
 }
-int Nut::get_x()
-{
-	return x;
-}
-int Nut::get_y()
-{
-	return y;
-}
+
 char Nut::get_symbol()
 {
 	return symbol;
@@ -30,10 +23,7 @@ bool Nut::has_been_collected()
 		collected = true;
 	return collected;
 }
-bool Nut::is_at_position(const int& x, const int& y)
-{
-	return (this->x == x) && (this->y == y);
-}
+
 void Nut::disappear()
 {
 	symbol = FREECELL;

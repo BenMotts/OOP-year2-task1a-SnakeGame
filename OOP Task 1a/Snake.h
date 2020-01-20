@@ -2,23 +2,21 @@
 
 #include "Mouse.h"
 #include "RandomNumberGenerator.h"
+#include "MovableGridItem.h"
 class BodyPart;
-class Snake {
+class Snake : public MovableGridItem{
 public:
 	Snake();
 	~Snake();
 
-	vector<BodyPart> snakeBody;
 	bool is_at_position(const int& x, const int& y);
+	vector<BodyPart> snakeBody;
 	bool has_caught_mouse();
 	void spot_mouse(Mouse* p_mouse);
 	void chase_mouse();
 	void set_direction(int& dx, int& dy);
 	void position_at_random();
 	void update_position(const int& dx, const int& dy);
-	char get_symbol(const int& i) const;
-	int get_x() const;
-	int get_y() const;
 	void move_tail(const int& dx, const int& dy);
 	int returnCounter();
 	void update_counter(int counter);
