@@ -36,8 +36,8 @@ bool Mouse::has_escaped() const
 }
 
 void Mouse::initialise_position() {
-	x = rng.get_random_value(SIZE);
-	y = rng.get_random_value(SIZE);
+	x = rng.get_random_value(SIZE - 2);
+	y = rng.get_random_value(SIZE - 2);
 }
 
 bool Mouse::has_reached_a_hole(Underground ug)

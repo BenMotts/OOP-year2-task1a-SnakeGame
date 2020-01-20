@@ -40,5 +40,4 @@ class Mouse
 		// supporting functions 
 
 		void update_position(const int& dx, const int& dy);
-		void position_in_middle_of_grid();
 };

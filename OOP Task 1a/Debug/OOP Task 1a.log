@@ -1,8 +1,15 @@
 ﻿  Game.cpp
-c:\users\ben\iclouddrive\documents\software engineering\oop\task 1a\build2\oop-year2-task1a-snakegame-master\oop task 1a\randomnumbergenerator.h(21): warning C4091: 'static ': ignored on left of 'RandomNumberGenerator' when no variable is declared
-c:\users\ben\iclouddrive\documents\software engineering\oop\task 1a\build2\oop-year2-task1a-snakegame-master\oop task 1a\game.cpp(52): warning C4018: '<': signed/unsigned mismatch
-c:\users\ben\iclouddrive\documents\software engineering\oop\task 1a\build2\oop-year2-task1a-snakegame-master\oop task 1a\game.cpp(93): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\source\repos\ben changes\oop task 1a\randomnumbergenerator.h(21): warning C4091: 'static ': ignored on left of 'RandomNumberGenerator' when no variable is declared
+c:\users\user\source\repos\ben changes\oop task 1a\game.cpp(52): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\source\repos\ben changes\oop task 1a\game.cpp(93): warning C4018: '<': signed/unsigned mismatch
+  Mouse.cpp
+c:\users\user\source\repos\ben changes\oop task 1a\randomnumbergenerator.h(21): warning C4091: 'static ': ignored on left of 'RandomNumberGenerator' when no variable is declared
+  Nut.cpp
+c:\users\user\source\repos\ben changes\oop task 1a\randomnumbergenerator.h(21): warning C4091: 'static ': ignored on left of 'RandomNumberGenerator' when no variable is declared
+  Snake.cpp
+c:\users\user\source\repos\ben changes\oop task 1a\randomnumbergenerator.h(21): warning C4091: 'static ': ignored on left of 'RandomNumberGenerator' when no variable is declared
+c:\users\user\source\repos\ben changes\oop task 1a\snake.cpp(89): warning C4018: '<': signed/unsigned mismatch
   Source.cpp
-c:\users\ben\iclouddrive\documents\software engineering\oop\task 1a\build2\oop-year2-task1a-snakegame-master\oop task 1a\randomnumbergenerator.h(21): warning C4091: 'static ': ignored on left of 'RandomNumberGenerator' when no variable is declared
+c:\users\user\source\repos\ben changes\oop task 1a\randomnumbergenerator.h(21): warning C4091: 'static ': ignored on left of 'RandomNumberGenerator' when no variable is declared
   Generating Code...
-  OOP Task 1a.vcxproj -> C:\Users\Ben\iCloudDrive\Documents\Software Engineering\OOP\Task 1a\Build2\OOP-year2-task1a-SnakeGame-master\Debug\OOP Task 1a.exe
+  OOP Task 1a.vcxproj -> C:\Users\user\Source\Repos\Ben changes\Debug\OOP Task 1a.exe
