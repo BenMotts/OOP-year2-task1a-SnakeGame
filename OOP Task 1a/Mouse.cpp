@@ -2,7 +2,7 @@
 
 Mouse::Mouse() : symbol(MOUSE), x(0), y(0), alive(true), escaped(false), mouse_dx(0), mouse_dy(0)
 {
-	position_in_middle_of_grid();
+	initialise_position();
 }
 
 int Mouse::get_x() const
@@ -33,6 +33,11 @@ bool Mouse::is_alive() const
 bool Mouse::has_escaped() const
 {
 	return escaped;
+}
+
+void Mouse::initialise_position() {
+	x = rng.get_random_value(SIZE);
+	y = rng.get_random_value(SIZE);
 }
 
 bool Mouse::has_reached_a_hole(Underground ug)
@@ -94,16 +99,12 @@ void Mouse::update_position(const int& dx, const int& dy)
 	y += dy;
 }
 
-void Mouse::position_in_middle_of_grid()
-{
-	x = SIZE / 2;
-	y = SIZE / 2;
-}
 void Mouse::respawn_mouse()
 {
 	x = 0;
 	y = 0;
-	position_in_middle_of_grid();
+	initialise_position();
+
 	symbol = MOUSE;
 	alive = true;
 	escaped = false;

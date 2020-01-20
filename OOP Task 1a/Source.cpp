@@ -31,6 +31,7 @@ int main()
 			{
 				DrawText("Player Name: ", 600, 80, 20, RED);
 				DrawText(player1->get_name().c_str(), 750, 80, 20, RED);
+				DrawText("Press 'c' To Cheat§", 600, 100, 20 , SKYBLUE);
 				DrawText("Press ESC to quit or R to restart game", 600, 235, 15, LIGHTGRAY);
 				
 				if(game.is_running())
@@ -40,6 +41,7 @@ int main()
 					if (IsKeyPressed(KEY_LEFT))   game.process_input(KEY_LEFT);
 					if (IsKeyPressed(KEY_UP))     game.process_input(KEY_UP);
 					if (IsKeyPressed(KEY_DOWN))   game.process_input(KEY_DOWN);
+					if (IsKeyPressed(CHEAT_MODE)) game.process_input(CHEAT_MODE);
 				}
 				else
 				{
@@ -69,7 +71,12 @@ int main()
 						{
 						case HOLE:       DrawRectangle(xPosition, yPosition, cellSize, cellSize, BLACK);     break;
 						case SNAKEHEAD:  DrawRectangle(xPosition, yPosition, cellSize, cellSize, RED);       break;
-						case MOUSE:      DrawRectangle(xPosition, yPosition, cellSize, cellSize, GREEN);     break;
+						case MOUSE:
+							if (!game.isCheating())
+								DrawRectangle(xPosition, yPosition, cellSize, cellSize, GREEN);
+							else
+								DrawRectangle(xPosition, yPosition, cellSize, cellSize, YELLOW);
+							break;
 						case FREECELL:   DrawRectangle(xPosition, yPosition, cellSize, cellSize, DARKGREEN); break;
 						case SNAKEBODY:  DrawRectangle(xPosition, yPosition, cellSize, cellSize, BLUE);      break;
 						case NUT:        DrawRectangle(xPosition, yPosition, cellSize, cellSize, DARKPURPLE); break;

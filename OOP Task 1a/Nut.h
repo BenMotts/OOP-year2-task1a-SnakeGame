@@ -1,6 +1,7 @@
 #pragma once
 #include "Constants.h"
 #include "Mouse.h"
+#include "RandomNumberGenerator.h"
 
 using namespace std;
 
@@ -25,6 +26,6 @@ class Nut {
 		 char symbol;
 		 bool collected;
 		 Mouse* pointer_mouse;
-
+		 RandomNumberGenerator rng;
 
 };
