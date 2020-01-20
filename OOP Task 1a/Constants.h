@@ -17,3 +17,4 @@
 #define KEY_LEFT  263
 #define KEY_DOWN  264
 #define KEY_UP    265
+#define CHEAT_MODE 67	//To enable or disable cheat mode

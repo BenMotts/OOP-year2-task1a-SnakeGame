@@ -2,7 +2,7 @@
 
 #include "Constants.h"
 #include "Underground.h"
-
+#include "RandomNumberGenerator.h"
 
 class Mouse
 {
@@ -25,7 +25,7 @@ class Mouse
 		void escape_into_hole();
 		void scamper(const int& key);
 		void respawn_mouse();
-
+		void initialise_position();
 
 	private:
 		// data members
@@ -35,9 +35,9 @@ class Mouse
 		int mouse_dy;
 		int x, y;
 		char symbol;
+		RandomNumberGenerator rng;
 
 		// supporting functions 
 
 		void update_position(const int& dx, const int& dy);
-		void position_in_middle_of_grid();
 };

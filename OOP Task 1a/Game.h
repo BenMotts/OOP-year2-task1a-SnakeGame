@@ -20,6 +20,9 @@ private:
 	Underground underground;
 	Nut nut;
 	Player player1;
+	bool cheatMode;
+	bool hasCheated;
+
 public:
 	//Constructor
 	void set_up();
@@ -31,5 +34,5 @@ public:
 	string get_end_reason();
 	void restart_game();
 	Player* getPlayerPtr();
-
+	bool isCheating() const;
 };
