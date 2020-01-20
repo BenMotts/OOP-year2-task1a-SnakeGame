@@ -124,8 +124,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="FixedGridItem.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GridItem.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="MovableGridItem.h" />
     <ClInclude Include="Nut.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RandomNumberGenerator.h" />
@@ -134,8 +137,11 @@
     <ClInclude Include="Underground.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FixedGridItem.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GridItem.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="MovableGridItem.cpp" />
     <ClCompile Include="Nut.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RandomNumberGenerator.cpp" />

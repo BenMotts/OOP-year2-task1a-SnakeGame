@@ -3,18 +3,16 @@
 #include "Constants.h"
 #include "Underground.h"
 #include "RandomNumberGenerator.h"
+#include "MovableGridItem.h"
 
-class Mouse
+class Mouse : public MovableGridItem
 {
 	public:
 		// constructor
 		Mouse();
 
 		// accessors
-		int get_x() const;
-		int get_y() const;
-		char get_symbol() const;
-		bool is_at_position(const int& x, const int& y);
+
 		bool is_alive() const;
 		bool has_escaped() const;
 		bool has_reached_a_hole(Underground ug);
@@ -33,8 +31,6 @@ class Mouse
 		bool escaped;
 		int mouse_dx;
 		int mouse_dy;
-		int x, y;
-		char symbol;
 		RandomNumberGenerator rng;
 
 		// supporting functions 

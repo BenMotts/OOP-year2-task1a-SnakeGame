@@ -4,26 +4,21 @@
 #include <vector>
 
 #include "constants.h"
+#include "FixedGridItem.h"
 
 using namespace std;
 
-class Hole
+class Hole : public FixedItem
 {
 public:
 	// constructors
 	Hole();
 	Hole(int x, int y);
 
-	// assessors
-	int get_x() const;
-	int get_y()const ;
-	char get_symbol() const;
-	bool is_at_position(const int& x, const int&) const;
+
 
 private:
-	// data members
-	char symbol;
-	int x, y;
+
 };
 
 class Underground
@@ -39,4 +34,4 @@ public:
 	char get_hole_symbol(const int& no) const;
 	int get_hole_x_at_position(const int& no) const;
 	int get_hole_y_at_position(const int& y) const;
- };
+};

@@ -92,17 +92,6 @@ void Snake::position_at_random()
 	}
 }
 
-char Snake::get_symbol(const int& i) const {
-	return snakeBody.at(i).get_symbol();
-}
-
-int Snake::get_x() const {
-	return snakeBody.at(0).get_x();
-}
-
-int Snake::get_y() const {
-	return snakeBody.at(0).get_y();
-}
 void Snake::move_tail(const int& dx, const int& dy)
 {
 	if (counter == 1) {
