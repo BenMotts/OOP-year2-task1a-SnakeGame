@@ -21,7 +21,7 @@ private:
 	Nut nut;
 	Player player1;
 	bool cheatMode;
-	bool hasCheated;
+	bool cheated;
 
 public:
 	//Constructor
@@ -35,4 +35,6 @@ public:
 	void restart_game();
 	Player* getPlayerPtr();
 	bool isCheating() const;
+	bool hasCheated() const;
+
 };

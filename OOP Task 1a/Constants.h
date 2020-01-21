@@ -18,3 +18,5 @@
 #define KEY_DOWN  264
 #define KEY_UP    265
 #define CHEAT_MODE 67	//To enable or disable cheat mode
+#define RESTART 82	//To restart game
+#define ESCAPE 27

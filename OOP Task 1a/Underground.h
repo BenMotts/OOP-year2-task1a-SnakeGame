@@ -34,4 +34,5 @@ public:
 	char get_hole_symbol(const int& no) const;
 	int get_hole_x_at_position(const int& no) const;
 	int get_hole_y_at_position(const int& y) const;
+	int get_random_hole_number(const int& x, const int& y) const;
 };

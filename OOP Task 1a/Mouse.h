@@ -24,6 +24,7 @@ class Mouse : public MovableGridItem
 		void scamper(const int& key);
 		void respawn_mouse();
 		void initialise_position();
+		void teleport_holes(const int& x, const int& y);
 
 	private:
 		// data members

@@ -94,3 +94,8 @@ void Mouse::respawn_mouse()
 	alive = true;
 	escaped = false;
 }
+
+void Mouse::teleport_holes(const int& x, const int& y) {
+	this->x = x;
+	this->y = y;
+}

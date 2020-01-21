@@ -1,5 +1,5 @@
 #include "Underground.h"
-
+#include "RandomNumberGenerator.h"
 
 
 Hole::Hole()
@@ -74,3 +74,12 @@ int Underground::get_hole_y_at_position(const int& no) const {
 	return holes.at(no).get_y();
 }
 
+int Underground::get_random_hole_number(const int& x, const int& y) const {
+	RandomNumberGenerator rng;
+	int holeNumber;
+	do {
+		holeNumber = rng.get_random_value(holes.size());
+		holeNumber--;
+	} while (holes.at(holeNumber).get_x() == x && holes.at(holeNumber).get_y() == y);
+	return holeNumber;
+}

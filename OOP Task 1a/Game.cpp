@@ -24,7 +24,7 @@ void Game::process_input(const int& key)
 		cheatMode = false;
 	else if (key == CHEAT_MODE && !cheatMode) {
 		cheatMode = true;
-		hasCheated = true;
+		cheated = true;
 	}
 	else
 		mouse.scamper(key);
@@ -111,16 +111,17 @@ void Game::apply_rules()
 	else
 
 	{
-		if (nut.has_been_collected() == true)
+		if (mouse.has_reached_a_hole(underground) && nut.has_been_collected())
 		{
-			if (mouse.has_reached_a_hole(underground))
-			{
-				mouse.escape_into_hole();
-				if (!hasCheated)
-					player1.update_score(1);
-			}
+			mouse.escape_into_hole();
+			if (!cheated)
+				player1.update_score(1);
 		}
-		if (nut.has_been_collected() == true)
+		else if (!nut.has_been_collected() && mouse.has_reached_a_hole(underground)) {
+			int holeNumber = underground.get_random_hole_number(mouse.get_x(), mouse.get_y());
+			mouse.teleport_holes(underground.get_hole_x_at_position(holeNumber), underground.get_hole_y_at_position(holeNumber));
+		}
+		else if (nut.has_been_collected())
 			nut.disappear();
 
 
@@ -143,7 +144,7 @@ string Game::get_end_reason()
 
 void Game::restart_game()
 {
-	hasCheated = false;
+	cheated = false;
 	cheatMode = false;
 	mouse.respawn_mouse();
 	nut.respawn_nut();
@@ -157,6 +158,10 @@ Player * Game::getPlayerPtr()
 
 bool Game::isCheating() const {
 	return cheatMode;
+}
+
+bool Game::hasCheated() const {
+	return cheated;
 }
 
 
